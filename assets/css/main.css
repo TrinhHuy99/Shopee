@@ -790,7 +790,7 @@
 
 .header__search-history-header {
     font-size: 1.5rem;
-    margin: 5px 12px;
+    margin: 10px 12px;
     text-align: left;
     font-weight: 300;
     color: var(--text-color);
@@ -805,7 +805,7 @@
 .header__search-history-item {
     list-style: none;
     margin: 0;
-    padding: 5px 12px;
+    padding: 10px 12px;
     overflow: hidden;
 }
 
