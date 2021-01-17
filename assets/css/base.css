@@ -1,0 +1,220 @@
+:root {
+    --white-color: white;
+    --black-color: black;
+    --text-color: #333;
+    --primary-color: #EE4D2D;
+    --border-color: #dbdbdb;
+    --star-gold-color: #ffce3d;
+    --header-height: 120px;
+    --navbar-height: 32px;
+    --header__sort-bar-height: 46px;
+    --header-with-search: calc(var(--header-height) - var(--navbar-height));
+    /* màu chữ bớt mỏi mắt */
+}
+
+* {
+    box-sizing: inherit;
+    /* kế thừa từ thẻ cha là thẻ html */
+}
+
+html {
+    font-size: 62.5%;
+    /* =10 px 100%= 16px */
+    line-height: 1.6rem;
+    /* =16px */
+    font-family: 'Roboto', sans-serif;
+    /* sans-serif tập hợp chuỗi chữ không chân */
+    box-sizing: border-box;
+}
+
+/* responsive */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes grown {
+    from {
+        transform: scale(0.7);
+        /* lúc đàu thu nhỏ ̃d phần trăm */
+    }
+    to {
+        transform: scale(1);
+        /* sau đó về lại vị trí 100% */
+    }
+}
+
+/* modal chung */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+.modal__overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    animation: fadeIn linear 0.2s;
+}
+
+.modal__body {
+    position: relative;
+    /* canh giữa màn hình */
+    margin: auto;
+    z-index: 1;
+    animation: grown linear 0.2s;
+}
+
+.btn {
+    min-width: 142px;
+    height: 30px;
+    background-color: var(--white-color);
+    border: none;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn--size-s {
+    height: 28px;
+    padding: 0 8px;
+    font-size: 1.2rem;
+}
+
+.btn--nomal:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    color: var(--white-color);
+}
+
+.btn.btn--disable {
+    cursor: default;
+    color: #949494;
+    background-color: #c3c3c3;
+}
+
+/* select input */
+
+.select-input {
+    background-color: var(--white-color);
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.select-input__icon {
+    color: #666;
+}
+
+.select-input__list {
+    position: absolute;
+    top: 17px;
+    left: 0;
+    right: 0;
+    padding-left: 0;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    z-index: 1;
+    padding: 12px 18px;
+    animation: fadeIn ease-in 0.3s;
+    display: none;
+}
+
+.select-input__list::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: -1px;
+    right: 0;
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__item {
+    list-style: none;
+    padding: 6px 0;
+}
+
+.select-input__link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+.select-input__link:hover {
+    color: var(--primary-color);
+}
+
+/* phân trang */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-item {
+    list-style: none;
+    margin: 0 12px;
+}
+
+.pagination-item--active .pagination-item__link {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    background-color: #ed5a3c;
+}
+
+.pagination-item__link {
+    /* để canh được chiều ngang */
+    display: block;
+    --height: 30px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: #939393;
+    min-width: 40px;
+    height: var(--height);
+    text-align: center;
+    line-height: var(--height);
+    font-weight: 300;
+}
+
+.pagination-item__icon {
+    font-size: 1.8rem;
+}
